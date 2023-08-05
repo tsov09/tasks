@@ -8,20 +8,20 @@ vector<int> vector_int;
 void fill_vector_int() {
 	vector_int.push_back(11);
 	vector_int.push_back(11);
-	vector_int.push_back(18);
-	vector_int.push_back(28);
 	vector_int.push_back(7);
+	vector_int.push_back(77);
+	vector_int.push_back(11);
+	vector_int.push_back(18);
 	vector_int.push_back(3);
+	vector_int.push_back(28);
 	vector_int.push_back(4);
 	vector_int.push_back(12);
 	vector_int.push_back(2);
-	vector_int.push_back(2);
-	vector_int.push_back(28);
 	vector_int.push_back(61);
 	vector_int.push_back(2);
-	vector_int.push_back(77);
+	vector_int.push_back(28);
 	vector_int.push_back(11);
-	vector_int.push_back(11);
+	vector_int.push_back(2);
 }
 
 void print_vector_int() {
@@ -36,23 +36,16 @@ void print_vector_int() {
 void remove_odd_1() {
 	int next = 1;
 	int vector_size = vector_int.size();
-	int final_size = 0;
-	for (int i = 0; i < vector_size - 1, next < vector_size; i++) {
-		if (vector_int[i] % 2 != 0) {
-			for (next; next < vector_size; next++) {
-				if (vector_int[next] % 2 == 0) {
-					final_size++;
-					swap(vector_int[i], vector_int[next]);
-					break;
-				}
+	int first_odd = 0;
+	for (int i = 0; i < vector_size; i++) {
+		if (vector_int[i] % 2 == 0) {
+			if (i > first_odd) {
+				swap(vector_int[i], vector_int[first_odd]);
 			}
+			first_odd++;
 		}
-		else {
-			final_size++;
-		}
-		next++;
 	}
-	vector_int.resize(final_size);
+	vector_int.resize(first_odd);
 }
 
 void remove_odd_2() {
