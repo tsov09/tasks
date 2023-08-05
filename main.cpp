@@ -34,10 +34,8 @@ void print_vector_int() {
 }
 
 void remove_odd_1() {
-	int next = 1;
-	int vector_size = vector_int.size();
 	int first_odd = 0;
-	for (int i = 0; i < vector_size; i++) {
+	for (int i = 0; i < vector_int.size(); i++) {
 		if (vector_int[i] % 2 == 0) {
 			if (i > first_odd) {
 				swap(vector_int[i], vector_int[first_odd]);
