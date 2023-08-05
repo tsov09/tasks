@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <set>
+
 using namespace std;
 
 
@@ -87,6 +89,22 @@ void remove_duplicates_2() {
 	}
 }
 
+void remove_duplicates_by_set() {
+	set<int> set_int;
+	for (int iter: vector_int) {
+		set_int.insert(iter);
+	}
+	for (int iter : vector_int) {
+		set_int.insert(iter);
+	}
+	vector_int.resize(set_int.size());
+	int next = 0;
+	for (int iter : set_int)	{
+		vector_int[next] = iter;
+		next++;
+	}
+}
+
 
 int main() {
 	fill_vector_int();
@@ -94,8 +112,9 @@ int main() {
 	print_vector_int();
 	cout << endl;
 
-	remove_duplicates_1();
+	//remove_duplicates_1();
 	//remove_duplicates_2();
+	remove_duplicates_by_set();
 	cout << "Removed duplicates: ";
 	print_vector_int();
 	cout << endl;
